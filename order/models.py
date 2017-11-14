@@ -13,6 +13,9 @@ class User(models.Model):
     email = models.CharField(max_length = 100)
     password = models.CharField(max_length = 80)
 
+    def __str__(self):
+        return self.name
+
 class Address(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     addr = models.CharField(max_length = 400)
@@ -25,10 +28,16 @@ class Orders(models.Model):
     transactionid = models.CharField(max_length = 20)
     mop = models.CharField(max_length = 20)
 
+    def __str__(self):
+        return self.transactionid
+
 class Food_items(models.Model):
     name  = models.CharField(max_length = 100)
     price = models.IntegerField()
     image = models.CharField(max_length = 300)
+
+    def __str__(self):
+        return self.name
 
 class Order_info(models.Model):
     order = models.ForeignKey(Orders, on_delete=models.CASCADE)

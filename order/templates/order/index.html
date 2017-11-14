@@ -1,20 +1,21 @@
-{% load staticfiles %}
-    
-   <link rel="stylesheet" type="text/css" href="{% static 'order/vendors/css/normalize.css'%}" >
-   <link rel="stylesheet" type="text/css" href="{% static 'order/vendors/css/Grid.css'%}" >
-   <link rel="stylesheet" type="text/css" href="{% static 'order/vendors/css/ionicons.min.css'%}" >
-   <link rel="stylesheet" type="text/css" href="{% static 'order/resources/css/style.css'%}" >
-   <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet">
+<html>
+  <head>
+  {% load staticfiles %}
+     <link rel="stylesheet" type="text/css" href="{% static 'order/vendors/css/normalize.css'%}" >
+     <link rel="stylesheet" type="text/css" href="{% static 'order/vendors/css/Grid.css'%}" >
+     <link rel="stylesheet" type="text/css" href="{% static 'order/vendors/css/ionicons.min.css'%}" >
+     <link rel="stylesheet" type="text/css" href="{% static 'order/resources/css/style.css'%}" >
+     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet">
 
-   <title>Night | Canteen</title>
-
+     <title>Night | Canteen</title>
+  </head>
+<body>
             <header>
             <nav>
                 <div class="row">
-                    <img src="./resources/img/37976.svg" alt="logo" class="logo">
+                    <img src="{% static 'order/resources/img/37976.svg'%}" alt="logo" class="logo">
                     <ul class="main-nav">
                         <li><a href="#">Why us ?</a></li>
-
                         <li><a href="#">login</a></li>
                         <li><a href="#">Sign up</a></li>
                     </ul>
@@ -87,66 +88,16 @@
             </section>
             <section class="section-meals">
                 <ul class="meals-showcase clearfix">
+                  {% for food in all_foods %}
                     <li>
                         <figure>
-                            <img src="resources/img/1.jpg" alt="">
-                            <p class="text">veg maggie</p>
+                            <img src="{% static 'order/resources/img/1.jpg'%}" alt="">
+                            <p class="text">{{ food.name }}</p>
                         </figure>
 
                     </li>
-                    <li>
-                            <figure>
-                                <img src="resources/img/2.jpg" alt="">
-                                <p class="text">plain maggie</p>
-                            </figure>
-
-                        </li>
-                        <li>
-                                <figure>
-                                    <img src="resources/img/3.jpg" alt="">
-                                    <p class="text">bread omlette</p>
-                                </figure>
-
-                            </li>
-                            <li>
-                                    <figure>
-                                        <img src="resources/img/4.jpg" alt="">
-                                        <p class="text">onion bread omlette</p>
-
-                                    </figure>
-                                </li>
+                    {% endfor%}
                 </ul>
-                <ul class="meals-showcase clearfix">
-                        <li>
-                            <figure>
-                                <img src="resources/img/5.jpg" alt="">
-                                <p class="text">butter panner</p>
-                            </figure>
-
-                        </li>
-                        <li>
-                                <figure>
-                                    <img src="resources/img/6.jpg" alt="">
-                                    <p class="text">chicken curry</p>
-                                </figure>
-
-                            </li>
-                            <li>
-                                    <figure>
-                                        <img src="resources/img/7.jpg" alt="">
-                                        <p class="text">rice</p>
-                                    </figure>
-
-                                </li>
-                                <li>
-                                        <figure>
-                                            <img src="resources/img/8.jpg" alt="" class="hover">
-                                            <p class="text">salad</p>
-                                        </figure>
-
-
-                                    </li>
-                    </ul>
             </section>
 
 
@@ -157,7 +108,7 @@
                     </h2>
                     <div class="row">
                         <div class="col span-1-of-2 steps-box">
-                            <img src="resources/img/phone.png" alt="" class="app-screen">
+                            <img src="{% static 'order/resources/img/phone.png'%}" alt="" class="app-screen">
 
                         </div>
                         <div class="col span-1-of-2 steps-box">
@@ -185,3 +136,5 @@
 
                 </div>
             </section>
+</body>
+</html>
