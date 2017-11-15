@@ -11,6 +11,7 @@
   </head>
 <body>
             <header>
+
             <nav>
                 <div class="row">
                     <img src="{% static 'order/resources/img/37976.svg'%}" alt="logo" class="logo">
@@ -86,19 +87,24 @@
                                 </div>
                 </div>
             </section>
+            <form action="makeorder" method="get">
             <section class="section-meals">
                 <ul class="meals-showcase clearfix">
                   {% for food in all_foods %}
                     <li>
-                        <figure>
-                            <img src="{% static 'order/resources/img/1.jpg'%}" alt="">
-                            <p class="text">{{ food.name }}</p>
-                        </figure>
-
+                      <label>
+                            <figure>
+                                <img src="{% static 'order/resources/img/1.jpg'%}" class="img-check" alt="{{ food.name }}">
+                                <input type="checkbox" name="{{ food.id }}" value="1" style="display:none;" autocomplete="off">
+                                <p class="text">{{ food.name }}</p>
+                            </figure>
+                      </label>
                     </li>
-                    {% endfor%}
+                    {% endfor %}
+                    <input type="submit" value="submit kijiye" />
                 </ul>
             </section>
+            </form>
 
 
             <section class="section-steps">
@@ -136,5 +142,15 @@
 
                 </div>
             </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".img-check").click(function(){
+    				$(this).toggleClass("check");
+    			});
+        });
+    </script>
 </body>
+
 </html>

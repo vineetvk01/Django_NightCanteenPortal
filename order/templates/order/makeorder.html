@@ -1,0 +1,36 @@
+<html>
+<head>
+</head>
+<body>
+  <h2>Confirmation : </h2>
+  <hr>
+  <h5>Step :  1 of 3 | Choose your items | </h5>
+  <hr>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Total</th>
+      <th>Options</th>
+    </tr>
+    {% for food in all_foods %}
+    <tr>
+      <td>{{ food.name }}</td>
+      <td>Rs.{{ food.price }}<td>
+      <td><input type="number" name="quantity" value=0 /></td>
+      <td>Rs 0 </td>
+      <th>-(x)-</th>
+    </tr>
+    {% endfor %}
+  </table>
+  <br>
+  <hr>
+  <h5>Total Payment : Rs 0 </h5>
+  <hr>
+  <textarea name="address">Enter the address here</textarea>
+  <input type="text" value="9999999999">
+  <input type="text" value="Vineet Srivastav">
+  <input type="submit" value="order">
+</body>
+</html>
